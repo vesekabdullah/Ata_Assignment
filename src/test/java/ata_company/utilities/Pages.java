@@ -1,15 +1,16 @@
 package ata_company.utilities;
 
-import ata_company.pages.LoginPage;
-import ata_company.pages.MainPage;
-import ata_company.pages.RegisterPage;
-import ata_company.pages.VerificationPage;
+import ata_company.pages.*;
 
 public class Pages {
     private MainPage mainPage;
     private RegisterPage registerPage;
-    private LoginPage loginPage;
+    public LoginPage loginPage;
     private VerificationPage verificationPage;
+    private PasswordPageForEmail passwordPageForEmail;
+    private FirstPage firstPage;
+    private MyCartPage myCartPage;
+    private PaymentPage paymentPage;
 
 
     public Pages() {
@@ -17,12 +18,21 @@ public class Pages {
         this.registerPage = new RegisterPage();
         this.loginPage = new LoginPage();
         this.verificationPage = new VerificationPage();
+        this.passwordPageForEmail = new PasswordPageForEmail();
+        this.firstPage = new FirstPage();
+        this.myCartPage = new MyCartPage();
+        this.paymentPage = new PaymentPage();
+
 
     }
 
 
     public MainPage mainPage() {
         return mainPage;
+    }
+
+    public FirstPage firstPage() {
+        return firstPage;
     }
 
     public RegisterPage registerPage() {
@@ -37,6 +47,17 @@ public class Pages {
         return verificationPage;
     }
 
+    public PasswordPageForEmail passwordPageForEmail() {
+        return passwordPageForEmail;
+    }
+
+    public MyCartPage myCartPage() {
+        return myCartPage;
+    }
+
+    public PaymentPage paymentPage() {
+        return paymentPage;
+    }
 }
 
 

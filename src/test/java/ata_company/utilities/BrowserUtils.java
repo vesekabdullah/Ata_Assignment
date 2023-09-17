@@ -19,8 +19,6 @@ import static org.junit.Assert.assertTrue;
 public class BrowserUtils {
 
 
-
-
     public static String getScreenshot(String name) {
 
         name = new Date().toString().replace(" ", "_").replace(":", "-") + "_" + name;
@@ -43,7 +41,6 @@ public class BrowserUtils {
     }
 
 
-
     public static void verifyElementDisplayed(WebElement element, String message) {
         try {
             assertTrue(message, element.isDisplayed());
@@ -51,7 +48,6 @@ public class BrowserUtils {
             Assert.fail(message);
         }
     }
-
 
 
     public static void doubleClick(WebElement element) {
@@ -76,7 +72,6 @@ public class BrowserUtils {
     }
 
 
-
     public static void wait(int secs) {
         try {
             Thread.sleep(1000 * secs);
@@ -84,7 +79,6 @@ public class BrowserUtils {
             e.printStackTrace();
         }
     }
-
 
 
     public static void waitSeconds(int seconds) throws InterruptedException {
@@ -119,19 +113,16 @@ public class BrowserUtils {
     }
 
 
-
     public static WebElement waitForVisibility(WebElement element, int timeToWaitInSec) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeToWaitInSec) );
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeToWaitInSec));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
-
 
 
     public static WebElement waitForVisibility(By locator, int timeToWaitInSec) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeToWaitInSec));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
-
 
 
     public static WebElement waitForClickability(WebElement element, int timeToWaitInSec) {
@@ -151,7 +142,6 @@ public class BrowserUtils {
     }
 
 
-
     public static void clickDynamicElementStartsWith(String searchText) {
         String xpath = "//*[starts-with(text(),'" + searchText + "')]";
         WebElement element = Driver.getDriver().findElement(By.xpath(xpath));
@@ -160,7 +150,7 @@ public class BrowserUtils {
 
 
     public static void clickDynamicElementByAttribute(String attributeName, String attributeValue) {
-        String xpath = "//*[@"+attributeName+"='"+attributeValue+"']";
+        String xpath = "//*[@" + attributeName + "='" + attributeValue + "']";
         WebElement element = Driver.getDriver().findElement(By.xpath(xpath));
         element.click();
     }
@@ -188,14 +178,16 @@ public class BrowserUtils {
     }
 
 
-    public  static void handleAlertDismiss() {
+    public static void handleAlertDismiss() {
         Alert alert = Driver.getDriver().switchTo().alert();
         alert.dismiss();
     }
-    public static Actions getAction(){
+
+    public static Actions getAction() {
         Actions actions = new Actions(Driver.getDriver());
         return actions;
     }
+
     public static String getCurrentURL() {
         WebDriver driver = Driver.getDriver();
         return driver.getCurrentUrl();
